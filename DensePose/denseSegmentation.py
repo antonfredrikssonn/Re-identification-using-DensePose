@@ -3,7 +3,6 @@ import createUV as cuv
 import cv2
 from pathlib import Path
 import json
-
 import torch 
 device = torch.device('cuda' if torch.cuda.is_available else 'cpu')
 
@@ -40,22 +39,7 @@ def parse_train_json(train, data_dir, output_dir):
                 crop = _crop(im, bbox)  
                 fill_folders(f"{idx:06}",crop,person_dir)
             
-
-
-# def market1501(output_dir, images_dir):
-    
-#     Path(output_dir).mkdir(exist_ok=True, parents=True)
-#     for image in os.listdir(images_dir):
-#         f = os.path.join(images_dir, image)
-#         if os.path.isfile(f):
-
-#             person_dir = f"{output_dir}/{image[0:4]}"
-#             crop = cv2.imread(f)
-            
-#             make_folders(person_dir)
-#             fill_folders(image,crop,person_dir)
-
-def market1501(output_dir, images_dir):
+def create_segmap(output_dir, images_dir):
     for image in os.listdir(images_dir):
         f = os.path.join(images_dir, image)
         if os.path.isfile(f):
@@ -90,9 +74,6 @@ if __name__ == '__main__':
     Axis_lobby_train = "/n/analyticsdata/polyaxon/data"
     Axis_lobby_train_json = "/n/analyticsdata/polyaxon/data/AxisLobby2017/AxisLobby2017_train.json"
     Axis_lobby_train_out = '../Axis/AxisLobby2017Train'
-    market1501(output_dir, images_dir)
-    #parse_train_json(ica_train_json,ica_train,ica_train_out)
-    #parse_train_json(Axis_lobby_train_json,Axis_lobby_train,Axis_lobby_train_out)
-    #fix("/home/bjornel/market1501", "/home/bjornel/market1501/bounding_box_test")
-    #remove('../../market1501/bounding_box_test/')
+    create_segmap(output_dir, images_dir)
+
     
