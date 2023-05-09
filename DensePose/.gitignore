@@ -1,0 +1,10 @@
+data/*
+.bash_history
+.config
+.cache
+__pycache__
+Re-ID/log2/*
+Re-ID/plots2/*
+Re-ID/res2/*
+Re-ID/models.txt
+Re-ID/models2.txt
