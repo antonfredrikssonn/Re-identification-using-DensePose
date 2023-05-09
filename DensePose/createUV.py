@@ -184,4 +184,5 @@ def texture(pkl_file, pkl_dir = None, directory = None, savedir = 'data/textures
 
 if __name__ == '__main__':
     infere_images('data/images')
+    a=1
     
